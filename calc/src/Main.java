@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) throws Exception {
@@ -7,10 +9,13 @@ public class Main {
             paramStr += arg;
             //System.out.println(arg);//debug
         }
-        paramStr = paramStr.trim();
+
         
         //paramStr = "V * IX";//debug
-                
+
+        if(0 == paramStr.length()) paramStr = getInputString();
+
+        paramStr = paramStr.trim();
         System.out.println(calc(paramStr));
     }
 
@@ -28,6 +33,15 @@ public class Main {
         else return false;
 
     } */
+
+    private static String getInputString(){
+        System.out.println("Usage: java Main <Your expression>\nOr write expression here:");
+        Scanner inputScan = new Scanner(System.in);
+
+        String output = inputScan.nextLine();
+        inputScan.close();
+        return output;
+    }
 
     static class Data{
         char[] operators = new char[]{'+', '-', '*', '/'};
